@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - '1/**/*.py'
+      - '2/**/*.py'
       - 'pyproject.toml'
       - 'uv.lock'
       - '.pre-commit-config.yaml'
@@ -12,6 +13,7 @@ on:
     branches: [ main ]
     paths:
       - '1/**/*.py'
+      - '2/**/*.py'
       - 'pyproject.toml'
       - 'uv.lock'
       - '.pre-commit-config.yaml'
@@ -37,7 +39,7 @@ jobs:
       run: uv sync
 
     - name: Run tests
-      run: uv run pytest 1/tests.py -v --tb=short
+      run: uv run pytest 1/ 2/ -v --tb=short
 
   lint:
     runs-on: ubuntu-latest
@@ -59,10 +61,10 @@ jobs:
       run: uv sync
 
     - name: Check formatting with Black
-      run: uv run black --check --diff 1/
+      run: uv run black --check --diff 1/ 2/
 
     - name: Type check with Mypy
-      run: uv run mypy 1/ --strict --ignore-missing-imports
+      run: uv run mypy 1/ 2/ --strict --ignore-missing-imports
 
     - name: Run pre-commit hooks
       run: |
