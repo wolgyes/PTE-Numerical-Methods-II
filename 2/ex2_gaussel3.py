@@ -6,7 +6,7 @@ Computes matrix inverse using Gaussian elimination with LU decomposition.
 import numpy as np
 from typing import Tuple, Optional
 import warnings
-from gaussel2 import gaussel2
+from ex2_gaussel2 import gaussel2
 
 
 def gaussel3(
