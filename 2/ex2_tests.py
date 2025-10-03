@@ -6,9 +6,9 @@ Tests for gaussel1, gaussel2, and gaussel3 functions using pytest
 import pytest
 import numpy as np
 import warnings
-from gaussel1 import gaussel1
-from gaussel2 import gaussel2
-from gaussel3 import gaussel3
+from ex2_gaussel1 import gaussel1
+from ex2_gaussel2 import gaussel2
+from ex2_gaussel3 import gaussel3
 
 
 class TestGaussel1:

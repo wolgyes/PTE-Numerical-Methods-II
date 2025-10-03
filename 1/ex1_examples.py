@@ -4,7 +4,7 @@ This script demonstrates the usage of all four machine number functions
 """
 
 import numpy as np
-from machine_numbers import fl1, fl2, fl3, fl4
+from ex1_machine_numbers import fl1, fl2, fl3, fl4
 
 
 def main() -> None:

@@ -5,9 +5,9 @@ Comprehensive examples demonstrating gaussel1, gaussel2, and gaussel3 functional
 
 import numpy as np
 from typing import Optional
-from gaussel1 import gaussel1
-from gaussel2 import gaussel2
-from gaussel3 import gaussel3
+from ex2_gaussel1 import gaussel1
+from ex2_gaussel2 import gaussel2
+from ex2_gaussel3 import gaussel3
 
 
 def main() -> None:

@@ -5,7 +5,7 @@ This script performs thorough testing of all machine number functions using pyte
 
 import pytest
 import numpy as np
-from machine_numbers import fl1, fl2, fl3, fl4
+from ex1_machine_numbers import fl1, fl2, fl3, fl4
 
 
 class TestFL1:
@@ -130,7 +130,7 @@ class TestFL2:
     def test_non_integer_k_values(self) -> None:
         """Test parameter validation - non-integer k values"""
         with pytest.raises(ValueError, match="k1 and k2 must be integers"):
-            fl2(3, 1.5, 2, show_plot=False)
+            fl2(3, 1.5, 2, show_plot=False)  # type: ignore[arg-type]
 
 
 class TestFL3:
@@ -184,7 +184,7 @@ class TestFL3:
     def test_complex_input(self) -> None:
         """Test input validation - complex input"""
         with pytest.raises(ValueError, match="Input must be a real scalar"):
-            fl3(complex(1, 2), 4, -2, 2)
+            fl3(complex(1, 2), 4, -2, 2)  # type: ignore[arg-type]
 
     def test_invalid_parameters(self) -> None:
         """Test input validation - invalid parameters"""
