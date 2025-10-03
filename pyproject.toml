@@ -12,6 +12,3 @@ dependencies = [
     "black>=24.8.0",
     "mypy>=1.11.0",
 ]
-
-[tool.mypy]
-exclude = ["1/", "2/"]
