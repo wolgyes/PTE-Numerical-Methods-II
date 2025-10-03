@@ -19,9 +19,9 @@ This repository contains solutions for MATLAB numerical computing exercises, wit
 
 ## Running Tests
 
-### Python Tests (Exercise 1 only)
+### Python Tests
 ```bash
-# Run all Python tests
+# Run Python tests
 uv run pytest 1/tests.py -v
 
 # Run specific test class
