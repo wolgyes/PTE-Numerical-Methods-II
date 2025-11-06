@@ -81,9 +81,19 @@ function plot_secant_iterations(f, x_history, f_history)
 
     figure('Position', [100, 100, 900, 600]);
 
+    % Convert function handle to string for title
+    f_str = func2str(f);
+    % Clean up the string: remove @(x) prefix if present
+    if startsWith(f_str, '@(x)')
+        f_str = strrep(f_str, '@(x)', 'f(x) = ');
+    else
+        f_str = ['f(x) = ' f_str];
+    end
+
     % Determine plotting range
-    x_min = min(x_history) - 0.5 * abs(max(x_history) - min(x_history));
-    x_max = max(x_history) + 0.5 * abs(max(x_history) - min(x_history));
+    x_range = max(x_history) - min(x_history);
+    x_min = min(x_history) - 0.4 * x_range;
+    x_max = max(x_history) + 0.4 * x_range;
     x_plot = linspace(x_min, x_max, 1000);
 
     % Plot the function
@@ -92,35 +102,49 @@ function plot_secant_iterations(f, x_history, f_history)
     hold on;
 
     % Plot zero line
-    plot([x_min, x_max], [0, 0], 'k--', 'LineWidth', 1, 'DisplayName', 'y = 0');
+    plot([x_min, x_max], [0, 0], 'k-', 'LineWidth', 0.5, 'HandleVisibility', 'off');
 
-    % Plot iteration points
-    plot(x_history, f_history, 'ro', 'MarkerSize', 8, 'MarkerFaceColor', 'r', ...
-         'DisplayName', 'Iteration points');
-
-    % Plot secant lines
+    % Plot secant lines (only between the two points, not extended)
     for i = 1:length(x_history)-1
         x1 = x_history(i);
         x2 = x_history(i+1);
         y1 = f_history(i);
         y2 = f_history(i+1);
 
-        % Draw secant line connecting two points
-        plot([x1, x2], [y1, y2], 'g--', 'LineWidth', 1.5, 'HandleVisibility', 'off');
-
-        % Add iteration number label
-        text(x2, y2, sprintf(' %d', i), 'FontSize', 10, 'Color', 'red');
+        % Draw simple secant line between the two points only
+        if i == 1
+            plot([x1, x2], [y1, y2], 'g-', 'LineWidth', 1.5, 'DisplayName', 'Secant lines');
+        else
+            plot([x1, x2], [y1, y2], 'g-', 'LineWidth', 1.5, 'HandleVisibility', 'off');
+        end
     end
 
-    % Mark the final approximation
-    x_final = x_history(end);
-    plot([x_final, x_final], [0, f_history(end)], 'r:', 'LineWidth', 2, ...
-         'DisplayName', 'Final approximation');
+    % Plot iteration points
+    plot(x_history, f_history, 'ro', 'MarkerSize', 7, 'MarkerFaceColor', 'r', ...
+         'DisplayName', 'Iterations');
+
+    % Add iteration number labels
+    y_range = max(y_plot) - min(y_plot);
+    for i = 1:length(x_history)
+        % Offset label slightly above or below point
+        y_offset = 0.015 * y_range;
+        if f_history(i) > 0
+            valign = 'bottom';
+            y_pos = f_history(i) + y_offset;
+        else
+            valign = 'top';
+            y_pos = f_history(i) - y_offset;
+        end
+
+        text(x_history(i), y_pos, sprintf('%d', i-1), ...
+             'FontSize', 9, 'Color', 'red', 'HorizontalAlignment', 'center', ...
+             'VerticalAlignment', valign);
+    end
 
     grid on;
     xlabel('x', 'FontSize', 12);
     ylabel('f(x)', 'FontSize', 12);
-    title('Secant Method - Iteration Visualization', 'FontSize', 14, 'FontWeight', 'bold');
+    title(sprintf('Secant Method: %s', f_str), 'FontSize', 13, 'FontWeight', 'bold');
     legend('Location', 'best');
     hold off;
 
