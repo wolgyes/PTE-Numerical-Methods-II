@@ -4,7 +4,6 @@ QR Decomposition using Householder Reflections Algorithm
 Implements QR decomposition using Householder transformations to zero out below-diagonal
 elements. More numerically stable than Gram-Schmidt for ill-conditioned matrices.
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np

@@ -3,7 +3,6 @@ Example demonstrations for iterative methods
 
 Showcases usage of jacobi, gaussseid, and jomega functions with various systems.
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np

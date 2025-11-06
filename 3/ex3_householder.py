@@ -4,7 +4,6 @@ Householder Transformation Matrix
 Computes the Householder reflection matrix that transforms one point to another.
 The Householder matrix H reflects points across a hyperplane.
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np

@@ -4,7 +4,6 @@ Soothed (Weighted) Jacobi Parameter Analysis
 Analyzes the omega relaxation parameter for optimal convergence of the
 Soothed Jacobi iteration method.
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np

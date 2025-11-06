@@ -4,7 +4,6 @@ QR Decomposition using Modified Gram-Schmidt Orthogonalization
 Implements QR decomposition where A = QR with Q orthogonal and R upper triangular.
 Uses Modified Gram-Schmidt for better numerical stability.
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np

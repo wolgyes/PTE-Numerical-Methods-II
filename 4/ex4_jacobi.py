@@ -5,7 +5,6 @@ Solves Ax = b using the Jacobi iterative method with vectorial form.
 The Jacobi method uses the splitting A = D - R where D is the diagonal
 and R = D - A.
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np

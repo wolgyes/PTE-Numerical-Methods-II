@@ -5,7 +5,6 @@ Solves Ax = b using the Gauss-Seidel iterative method with vectorial form.
 Uses the splitting A = (D + L) - U where D is diagonal, L is strictly
 lower triangular, and U is strictly upper triangular.
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np

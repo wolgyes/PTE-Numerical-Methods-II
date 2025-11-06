@@ -6,7 +6,6 @@ matrix types on a single plot for direct visual comparison.
 
 This is the Python equivalent of example_jomega_subplots.m
 
-Author: Generated for PTE Numerical Methods II
 """
 
 import numpy as np
